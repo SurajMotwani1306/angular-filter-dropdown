@@ -1,0 +1,36 @@
+{
+  "name": "angular-filter-dropdown",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "description": "Filter your data respective to any field based on your dataset",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SurajMotwani1306/angular-filter-dropdown.git"
+  },
+  "keywords": [
+    "angular-filter-dropdown",
+    "filter-dropdown",
+    "filter",
+    "dropdown",
+    "datatable",
+    "table",
+    "data-filter",
+    "angular",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Suraj Motwani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SurajMotwani1306/angular-filter-dropdown/issues"
+  },
+  "homepage": "https://github.com/SurajMotwani1306/angular-filter-dropdown#readme"
+}
