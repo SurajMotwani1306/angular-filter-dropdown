@@ -1,0 +1,13 @@
+<div class="dropdown" (click)="toggleDropdown()" tabindex="0">
+    <img src="../../../assets/filter.png" class="filter-icon-right" />
+    <div class="dropdown-menu dropdown-box-height" [class.show]="dropdownOpen">
+        <div class="dropdown-item">
+            <input type="checkbox" class="checkbox-input" (change)="onSelectAll($event)" [(ngModel)]="selectAll">
+            <span class="checkbox-label">Select All</span>
+        </div>
+        <div *ngFor="let data of items" class="dropdown-item">
+            <input type="checkbox" class="checkbox-input" [(ngModel)]="data.checked" (change)="onItemSelected(data)">
+            <span class="checkbox-label">{{ data[columnName] }}</span>
+        </div>
+    </div>
+</div>
