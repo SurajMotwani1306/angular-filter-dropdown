@@ -24,7 +24,7 @@ npm i angular-filter-dropdown
 
 ## Import
 ```ts
-import { AngularFilterDropdownModule } from 'angular-rating-showcase';
+import { AngularFilterDropdownModule } from 'angular-filter-dropdown';
 
 @NgModule({
   ...
