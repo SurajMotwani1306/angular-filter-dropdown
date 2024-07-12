@@ -1,5 +1,5 @@
-<div class="dropdown" (click)="toggleDropdown()" tabindex="0">
-    <img src="../../../assets/filter.png" class="filter-icon-right" />
+<div class="dropdown" tabindex="0" (click)="toggleDropdown()">
+    <img src="../../../assets/filter.png" class="filter-icon-right" alt="filter-icon"/>
     <div class="dropdown-menu dropdown-box-height" [class.show]="dropdownOpen">
         <div class="dropdown-item">
             <input type="checkbox" class="checkbox-input" (change)="onSelectAll($event)" [(ngModel)]="selectAll">

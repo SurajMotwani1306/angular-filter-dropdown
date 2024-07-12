@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'lib-angular-filter-dropdown',
@@ -16,8 +16,16 @@ export class AngularFilterDropdownComponent {
   items: any;
   selectAll: boolean = false;
   uncheckAllStatus: boolean = false;
-
+  dropdown: any;
   constructor(){}
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;    
+    if (!target.nextElementSibling?.classList.contains('show')) {
+      this.dropdownOpen = false;
+    }
+  }
 
   ngOnInit(){
    this.items = this.tableData;
@@ -29,7 +37,6 @@ export class AngularFilterDropdownComponent {
   iterateForAddingCheckedField(){    
     let result = this.items.map((item:any) => item[this.columnName])
     result = [...new Set(result)];
-    // console.log(result);
     
     let output: any[] = [];
     result.forEach((element:any) => {
@@ -39,9 +46,7 @@ export class AngularFilterDropdownComponent {
         });
     });
 
-    // console.log(output)
     this.items = output;
-    // Pass final filtered data for column
   }
 
   iterateForSelectAllChecked(){
@@ -66,8 +71,6 @@ export class AngularFilterDropdownComponent {
     
     this.items.forEach((item:any) => {
       item.checked = checkbox.checked;
-
-      // check for it
       this.onUnselectAll.emit(item.checked);
     });
 
@@ -79,7 +82,5 @@ export class AngularFilterDropdownComponent {
     this.onCheckBoxStatusChanged.emit(item);
     this.iterateForSelectAllChecked();
     // this.iterateForSelectAllUnChecked();
-    // console.log(item);
-    
   }
 }
