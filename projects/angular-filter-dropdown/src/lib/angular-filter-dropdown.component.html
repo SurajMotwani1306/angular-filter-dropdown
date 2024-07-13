@@ -1,5 +1,5 @@
-<div class="dropdown" tabindex="0" (click)="toggleDropdown()">
-    <lib-filter-icon-svg class="filter-icon-right"/>
+<div class="dropdown" tabindex="0">
+    <lib-filter-icon-svg class="filter-icon-right" (click)="toggleDropdown()"/>
     <div class="dropdown-menu dropdown-box-height" [class.show]="dropdownOpen">
         <div class="dropdown-item">
             <input type="checkbox" class="checkbox-input" (change)="onSelectAll($event)" [(ngModel)]="selectAll">

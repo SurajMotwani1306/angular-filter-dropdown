@@ -48,6 +48,11 @@ import { AngularFilterDropdownModule } from 'angular-filter-dropdown';
 
 # Configuration - Props
 ```ts
+
+  ngOnInit(){
+    this.replicaData = [...this.data.entries];  
+  }
+
   checkboxStatusChange(event: any){
     console.log(event);
   }

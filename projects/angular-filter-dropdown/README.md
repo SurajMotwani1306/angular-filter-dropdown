@@ -78,6 +78,10 @@ Just an instance, shared piece of code below for duplication handling.
 <br/>
 
 ```ts
+ngOnInit(){
+  this.replicaData = [...this.data.entries];  
+}
+
 checkboxStatusChange(event: any){
     let keysName = Object.keys(event);
     
