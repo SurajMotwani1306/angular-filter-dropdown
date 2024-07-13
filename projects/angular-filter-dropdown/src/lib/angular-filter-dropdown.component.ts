@@ -1,4 +1,5 @@
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, EventEmitter, ElementRef, HostListener, Input, Output, ViewChild } from '@angular/core';
+import { FilterIconSvgComponent } from './components/filter-icon-svg/filter-icon-svg.component';
 
 @Component({
   selector: 'lib-angular-filter-dropdown',
@@ -11,6 +12,7 @@ export class AngularFilterDropdownComponent {
   @Input() columnName: any;
   @Output() onCheckBoxStatusChanged = new EventEmitter<{ id: number, checked: boolean }>();
   @Output() onUnselectAll = new EventEmitter<Boolean>();
+  @ViewChild(FilterIconSvgComponent) svgIcon!: FilterIconSvgComponent;
 
   dropdownOpen = false;
   items: any;
@@ -18,12 +20,11 @@ export class AngularFilterDropdownComponent {
   uncheckAllStatus: boolean = false;
   dropdown: any;
 
-  constructor(){}
+  constructor(private el: ElementRef){}
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;    
-    if (!target.nextElementSibling?.classList.contains('show')) {
+    if (this.isClickInsideSvg(event) && document.getElementById("dropdown-box")?.classList.contains('show')) {
       this.dropdownOpen = false;
     }
   }
@@ -33,6 +34,11 @@ export class AngularFilterDropdownComponent {
    this.iterateForAddingCheckedField();
    this.iterateForSelectAllChecked();
    this.iterateForSelectAllUnChecked();
+  }
+
+  isClickInsideSvg(event: MouseEvent): boolean {
+    const svgElement = this.el.nativeElement.querySelector('lib-filter-icon-svg svg');
+    return svgElement && svgElement.contains(event.target as Node);
   }
 
   iterateForAddingCheckedField(){    
