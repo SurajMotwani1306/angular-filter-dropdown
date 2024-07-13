@@ -24,7 +24,8 @@ export class AngularFilterDropdownComponent {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
-    if (this.isClickInsideSvg(event) && document.getElementById("dropdown-box")?.classList.contains('show')) {
+    const target = event.target as HTMLElement;    
+    if (!target.nextElementSibling?.classList.contains('show')) {
       this.dropdownOpen = false;
     }
   }
@@ -34,11 +35,6 @@ export class AngularFilterDropdownComponent {
    this.iterateForAddingCheckedField();
    this.iterateForSelectAllChecked();
    this.iterateForSelectAllUnChecked();
-  }
-
-  isClickInsideSvg(event: MouseEvent): boolean {
-    const svgElement = this.el.nativeElement.querySelector('lib-filter-icon-svg svg');
-    return svgElement && svgElement.contains(event.target as Node);
   }
 
   iterateForAddingCheckedField(){    
