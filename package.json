@@ -10,7 +10,7 @@
     "build-library": "ng build angular-filter-dropdown",
     "pack-library": "cd dist/angular-filter-dropdown && npm pack",
     "final": "ng build angular-filter-dropdown && cd dist/angular-filter-dropdown && npm pack",
-    "publish": "npm publish dist/angular-filter-dropdown/angular-filter-dropdown-1.0.8.tgz --access public"
+    "publish": "npm publish dist/angular-filter-dropdown/angular-filter-dropdown-1.1.0.tgz --access public"
   },
   "private": true,
   "dependencies": {

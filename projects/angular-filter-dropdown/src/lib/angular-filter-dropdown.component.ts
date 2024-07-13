@@ -1,5 +1,4 @@
-import { Component, EventEmitter, ElementRef, HostListener, Input, Output, ViewChild } from '@angular/core';
-import { FilterIconSvgComponent } from './components/filter-icon-svg/filter-icon-svg.component';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'lib-angular-filter-dropdown',
@@ -12,7 +11,6 @@ export class AngularFilterDropdownComponent {
   @Input() columnName: any;
   @Output() onCheckBoxStatusChanged = new EventEmitter<{ id: number, checked: boolean }>();
   @Output() onUnselectAll = new EventEmitter<Boolean>();
-  @ViewChild(FilterIconSvgComponent) svgIcon!: FilterIconSvgComponent;
 
   dropdownOpen = false;
   items: any;
@@ -20,7 +18,7 @@ export class AngularFilterDropdownComponent {
   uncheckAllStatus: boolean = false;
   dropdown: any;
 
-  constructor(private el: ElementRef){}
+  constructor(){}
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
