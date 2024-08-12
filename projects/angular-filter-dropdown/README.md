@@ -1,4 +1,4 @@
-# angular-filter-dropdown
+# Angular Filter Dropdown
 
 Filter your data respective to any field based on your dataset
 Also, identifies duplications of data & handles with single checkbox created dynamically.
